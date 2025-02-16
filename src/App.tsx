@@ -372,6 +372,70 @@ const App = () => {
         </div>
       </section>
 
+      <section id="products" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products & Solutions</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive telecom solutions designed to meet the evolving needs of modern communication infrastructure
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="mb-4" aria-hidden="true">{product.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+                <p className="text-gray-600 mb-4">{product.description}</p>
+                <ul className="space-y-2">
+                  {product.features.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center text-gray-700">
+                      <CheckCircle className="w-4 h-4 text-blue-500 mr-2" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button 
+                  className="mt-6 flex items-center text-blue-600 hover:text-blue-700"
+                  aria-label={`Learn more about ${product.title}`}
+                >
+                  Learn More <ChevronRight className="w-4 h-4 ml-1" aria-hidden="true" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="clients" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Trusted Clients</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We are proud to work with leading companies in the telecommunications and technology sectors
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="max-h-20 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
